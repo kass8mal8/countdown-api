@@ -1,10 +1,9 @@
+const bodyParser = require('body-parser')
 const express = require('express')
 const app = express()
+const msgRoute = require('./routes/messages')
 
-const tracksRoute = require('./routes/tracks')
-const artistRoute = require('./routes/artist')
-
-app.use('/tracks', tracksRoute)
-//app.use('/artist', artistRoute)
+app.use(bodyParser.json())
+app.use('/messages', msgRoute)
 
 module.exports = app
